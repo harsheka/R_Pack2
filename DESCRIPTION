@@ -1,0 +1,14 @@
+Package: Rpack2
+Type: Package
+Title: Binary Segmentation
+Version: 11.6.2021
+Author: Karl Harshe
+Maintainer: Karl Harshe <kh2638@nau.edu>
+Description: Standard template library 
+ containers are used to implement an efficient binary segmentation
+ algorithm, which is log-linear on average and quadratic in the
+ worst case.
+License: GPL-3
+LinkingTo: Rcpp
+Imports: data.table, Rcpp
+RoxygenNote: 7.1.2
