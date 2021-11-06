@@ -22,9 +22,45 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// timesTwo
+NumericVector timesTwo(NumericVector x);
+RcppExport SEXP _Rpack2_timesTwo(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(timesTwo(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cumsum_sug
+NumericVector cumsum_sug(NumericVector x);
+RcppExport SEXP _Rpack2_cumsum_sug(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(cumsum_sug(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cumsum1
+NumericVector cumsum1(NumericVector x);
+RcppExport SEXP _Rpack2_cumsum1(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(cumsum1(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_Rpack2_rcpp_binseg", (DL_FUNC) &_Rpack2_rcpp_binseg, 2},
+    {"_Rpack2_timesTwo", (DL_FUNC) &_Rpack2_timesTwo, 1},
+    {"_Rpack2_cumsum_sug", (DL_FUNC) &_Rpack2_cumsum_sug, 1},
+    {"_Rpack2_cumsum1", (DL_FUNC) &_Rpack2_cumsum1, 1},
     {NULL, NULL, 0}
 };
 
