@@ -5,3 +5,15 @@ rcpp_binseg <- function(data_vec, kmax) {
     .Call(`_Rpack2_rcpp_binseg`, data_vec, kmax)
 }
 
+timesTwo <- function(x) {
+    .Call(`_Rpack2_timesTwo`, x)
+}
+
+cumsum_sug <- function(x) {
+    .Call(`_Rpack2_cumsum_sug`, x)
+}
+
+cumsum1 <- function(x) {
+    .Call(`_Rpack2_cumsum1`, x)
+}
+

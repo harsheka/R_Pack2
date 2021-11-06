@@ -4,7 +4,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-NumericVector cpp_cumsum(NumericVector x){
+NumericVector cppcumsum(NumericVector x){
   // initialize an accumulator variable
   double acc = 0;
   
