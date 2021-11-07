@@ -4,7 +4,11 @@ Title: Changepoints
 Version: 11.6.2021
 Author: Karl Harshe
 Maintainer: Karl Harshe <kh2638@nau.edu>
-Description: Implimantations of Binary Segmentation in C++ and Optimal Segmentation via Dynamic Programming in R.
+Description: This package contains implimentations of severla changepoint 
+  detecction algorithms.  There is an R implimentation of Binary Segmentation
+  as well as Dr. Hocking's version in C++ and Optimal Segmentation via Dynamic 
+  Programming in both R and C++. Also available is a RCPP implimentation of 
+  the Cumulative Sum function for an input vector.
 License: GPL-3
 LinkingTo: Rcpp
 Imports: data.table, Rcpp
