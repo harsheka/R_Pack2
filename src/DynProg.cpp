@@ -1,5 +1,6 @@
 #include <Rcpp.h>
 #include "DynProg.h"
+#include <array>
 
 using namespace Rcpp;
 
@@ -24,18 +25,29 @@ NumericVector Cost(NumericVector cumsum_vec, NumericVector position_vec){
   }
   return Cost_vec;
 }
-
+// RCPP_ADVANCED_EXCEPTION_CLASS implimentation
 int vec_min_index(NumericVector x){
   NumericVector::iterator it = std::min_element(x.begin(),x.end());
   return it - x.begin();
 }
 
+/* CPP implimentation
+int index_min_element(std::array<double> array, int size){
+  int index = 0;
+  
+  for(int i = 1; i < size; i++){
+    if(array[i] < array[index])
+      index = i;              
+  }
+  return index;
+}
+*/
 // [[Rcpp::export]]
 Rcpp::NumericVector cpp_dynamic_prog
   (const Rcpp::NumericVector input_vec,
    const int k_max){
   int n_data = input_vec.length();
- 
+  int size = n_data;
   //Rcout << n_data <<"\n";
   
   //initialize the cost matrix with zeros
@@ -80,7 +92,7 @@ Rcpp::NumericVector cpp_dynamic_prog
       for (int iii = 0; iii< ii; iii++){
         tot_cost[iii] = all_prev_costs[iii] + last_costs[iii];
       }
-
+      
       int best_option = vec_min_index(tot_cost);  // index of minimum val
       //Rcout<<tot_cost<<"\n";
       //Rcout<<best_option<<"\n";

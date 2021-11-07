@@ -1,5 +1,5 @@
 useDynLib(Rpack2, .registration=TRUE)
 import(data.table)
 importFrom(Rcpp, evalCpp)
-export(rcpp_binseg, dynamic_lines, cppcumsum, cpp_dynamic_prog)
+export(rcpp_binseg, dynamic_lines, cppcumsum, cpp_dynamic_prog, binary_segmentation)
 #exportPattern("^[[:alpha:]]+")
