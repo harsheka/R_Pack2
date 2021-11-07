@@ -25,6 +25,11 @@ NumericVector Cost(NumericVector cumsum_vec, NumericVector position_vec){
   return Cost_vec;
 }
 
+int vec_min_index(NumericVector x){
+  NumericVector::iterator it = std::min_element(x.begin(),x.end());
+  return it - x.begin();
+}
+
 // [[Rcpp::export]]
 Rcpp::NumericVector cpp_dynamic_prog
   (const Rcpp::NumericVector input_vec,
@@ -52,20 +57,20 @@ Rcpp::NumericVector cpp_dynamic_prog
   
   for(int i=1; i<k_max; i++){
   
-    int prev_i = i-1;
+    //int prev_i = i-1;
   
     for (int ii = i; ii<n_data; ii++){
       NumericVector pos_last_end(ii);
-     
-      std::iota(pos_last_end.begin(), pos_last_end.end(),prev_i);
       
-      NumericVector prev_i_vec(pos_last_end.length(),prev_i);
+      std::iota(pos_last_end.begin(), pos_last_end.end(),i);
+      NumericVector prev_i_vec(pos_last_end.length(),i);
       NumericVector all_prev_costs= Cost(pos_last_end, prev_i_vec);
-      
+     
       NumericVector rev_pos_last_end(ii);
-      std::iota(pos_last_end.begin(), pos_last_end.end(),ii);  // might  be prev_i instead of ii
-      std::reverse(pos_last_end.begin(), pos_last_end.end());
+      std::iota(rev_pos_last_end.begin(), rev_pos_last_end.end(),i);  // might  be prev_i instead of ii
+      std::reverse(rev_pos_last_end.begin(), rev_pos_last_end.end());
       NumericVector last_seg_sums(ii);
+      
       for (int iii = 0; iii< ii; iii++){
         last_seg_sums[iii] = cumsum[ii] - cumsum[iii];
       }
@@ -76,13 +81,15 @@ Rcpp::NumericVector cpp_dynamic_prog
         tot_cost[iii] = all_prev_costs[iii] + last_costs[iii];
       }
 
-      int best_option = min(tot_cost);  // index of minimum val
-      
+      int best_option = vec_min_index(tot_cost);  // index of minimum val
+      //Rcout<<tot_cost<<"\n";
+      //Rcout<<best_option<<"\n";
       cost_mat(ii,i)= tot_cost[best_option] ;
+      
     }
   }
   
-  //Rcout<< cost_mat<<"\n";
+  Rcout<< cost_mat<<"\n";
   
   return 0;
 }
