@@ -10,15 +10,15 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// rcpp_binseg
-Rcpp::List rcpp_binseg(const Rcpp::NumericVector data_vec, const int kmax);
-RcppExport SEXP _Rpack2_rcpp_binseg(SEXP data_vecSEXP, SEXP kmaxSEXP) {
+// rcpp_binseg_Dr_Hocking
+Rcpp::List rcpp_binseg_Dr_Hocking(const Rcpp::NumericVector data_vec, const int kmax);
+RcppExport SEXP _Rpack2_rcpp_binseg_Dr_Hocking(SEXP data_vecSEXP, SEXP kmaxSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type data_vec(data_vecSEXP);
     Rcpp::traits::input_parameter< const int >::type kmax(kmaxSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_binseg(data_vec, kmax));
+    rcpp_result_gen = Rcpp::wrap(rcpp_binseg_Dr_Hocking(data_vec, kmax));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -58,7 +58,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_Rpack2_rcpp_binseg", (DL_FUNC) &_Rpack2_rcpp_binseg, 2},
+    {"_Rpack2_rcpp_binseg_Dr_Hocking", (DL_FUNC) &_Rpack2_rcpp_binseg_Dr_Hocking, 2},
     {"_Rpack2_cpp_dynamic_prog", (DL_FUNC) &_Rpack2_cpp_dynamic_prog, 2},
     {"_Rpack2_cppcumsum", (DL_FUNC) &_Rpack2_cppcumsum, 1},
     {"_Rpack2_min_index", (DL_FUNC) &_Rpack2_min_index, 1},
