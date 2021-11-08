@@ -1,5 +1,4 @@
 #include <Rcpp.h>
-#include "DynProg.h"
 #include <array>
 
 using namespace Rcpp;
@@ -59,14 +58,19 @@ Rcpp::NumericVector cpp_dynamic_prog
   
   for(int i=1; i<k_max; i++){
   
-    //int prev_i = i-1;
+    int prev_i = i-1;
   
     for (int ii = i; ii<n_data; ii++){
       NumericVector pos_last_end(ii);
       
-      std::iota(pos_last_end.begin(), pos_last_end.end(),i);
-      NumericVector prev_i_vec(pos_last_end.length(),i);
-      NumericVector all_prev_costs= Cost(pos_last_end, prev_i_vec);
+      std::iota(pos_last_end.begin(), pos_last_end.end(),prev_i);
+      //NumericVector prev_i_vec(pos_last_end.length(),i);
+      NumericVector all_prev_costs(ii);
+      for (int iii = 0; iii< ii; iii++){
+        all_prev_costs[iii] = cost_mat(pos_last_end[iii],prev_i);
+      }
+      
+      //NumericVector all_prev_costs= cost_mat(pos_last_end, prev_i_vec);
      
       NumericVector rev_pos_last_end(ii);
       std::iota(rev_pos_last_end.begin(), rev_pos_last_end.end(),i);  // might  be prev_i instead of ii

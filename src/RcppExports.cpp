@@ -10,18 +10,6 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// cpp_dynamic_prog
-Rcpp::NumericVector cpp_dynamic_prog(const Rcpp::NumericVector input_vec, const int k_max);
-RcppExport SEXP _Rpack2_cpp_dynamic_prog(SEXP input_vecSEXP, SEXP k_maxSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type input_vec(input_vecSEXP);
-    Rcpp::traits::input_parameter< const int >::type k_max(k_maxSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_dynamic_prog(input_vec, k_max));
-    return rcpp_result_gen;
-END_RCPP
-}
 // rcpp_binseg
 Rcpp::List rcpp_binseg(const Rcpp::NumericVector data_vec, const int kmax);
 RcppExport SEXP _Rpack2_rcpp_binseg(SEXP data_vecSEXP, SEXP kmaxSEXP) {
@@ -31,6 +19,18 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type data_vec(data_vecSEXP);
     Rcpp::traits::input_parameter< const int >::type kmax(kmaxSEXP);
     rcpp_result_gen = Rcpp::wrap(rcpp_binseg(data_vec, kmax));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_dynamic_prog
+Rcpp::NumericVector cpp_dynamic_prog(const Rcpp::NumericVector input_vec, const int k_max);
+RcppExport SEXP _Rpack2_cpp_dynamic_prog(SEXP input_vecSEXP, SEXP k_maxSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type input_vec(input_vecSEXP);
+    Rcpp::traits::input_parameter< const int >::type k_max(k_maxSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_dynamic_prog(input_vec, k_max));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -58,8 +58,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_Rpack2_cpp_dynamic_prog", (DL_FUNC) &_Rpack2_cpp_dynamic_prog, 2},
     {"_Rpack2_rcpp_binseg", (DL_FUNC) &_Rpack2_rcpp_binseg, 2},
+    {"_Rpack2_cpp_dynamic_prog", (DL_FUNC) &_Rpack2_cpp_dynamic_prog, 2},
     {"_Rpack2_cppcumsum", (DL_FUNC) &_Rpack2_cppcumsum, 1},
     {"_Rpack2_min_index", (DL_FUNC) &_Rpack2_min_index, 1},
     {NULL, NULL, 0}

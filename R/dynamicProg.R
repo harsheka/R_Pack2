@@ -2,6 +2,9 @@
 #' @export
 
 dynamic_lines = function(data, max_segments,data_title = "logratio"){
+  if (data[[data_title]]==0){
+    stop("")
+  }
   data = data.table(data)
   data_size = nrow(data)
   data [, data_i := 1:data_size]
