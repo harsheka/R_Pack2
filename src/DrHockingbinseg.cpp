@@ -1,4 +1,4 @@
-#include "binseg.h"
+#include "DrHockingbinseg.h"
 #include <math.h>//INFINITY
 #include <set>//multiset
 #include <vector>

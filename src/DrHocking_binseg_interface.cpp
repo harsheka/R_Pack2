@@ -1,6 +1,6 @@
 #include <Rcpp.h>
 #include <R.h>
-#include "binseg.h"
+#include "DrHockingbinseg.h"
 
 // [[Rcpp::export]]
 Rcpp::List rcpp_binseg
