@@ -3,6 +3,7 @@
 #include <numeric> 
 using namespace Rcpp;
 
+
 // [[Rcpp::export]]
 NumericVector cppcumsum(NumericVector x){
   // initialize an accumulator variable
@@ -17,4 +18,10 @@ NumericVector cppcumsum(NumericVector x){
   }
   return res;
 }
+
+
+
+
+
+
 

@@ -13,3 +13,7 @@ cppcumsum <- function(x) {
     .Call(`_Rpack2_cppcumsum`, x)
 }
 
+min_index <- function(arr) {
+    .Call(`_Rpack2_min_index`, arr)
+}
+

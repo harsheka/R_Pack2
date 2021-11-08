@@ -31,17 +31,7 @@ int vec_min_index(NumericVector x){
   return it - x.begin();
 }
 
-/* CPP implimentation
-int index_min_element(std::array<double> array, int size){
-  int index = 0;
-  
-  for(int i = 1; i < size; i++){
-    if(array[i] < array[index])
-      index = i;              
-  }
-  return index;
-}
-*/
+
 // [[Rcpp::export]]
 Rcpp::NumericVector cpp_dynamic_prog
   (const Rcpp::NumericVector input_vec,

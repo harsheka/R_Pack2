@@ -45,11 +45,23 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// min_index
+int min_index(NumericVector arr);
+RcppExport SEXP _Rpack2_min_index(SEXP arrSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type arr(arrSEXP);
+    rcpp_result_gen = Rcpp::wrap(min_index(arr));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_Rpack2_cpp_dynamic_prog", (DL_FUNC) &_Rpack2_cpp_dynamic_prog, 2},
     {"_Rpack2_rcpp_binseg", (DL_FUNC) &_Rpack2_rcpp_binseg, 2},
     {"_Rpack2_cppcumsum", (DL_FUNC) &_Rpack2_cppcumsum, 1},
+    {"_Rpack2_min_index", (DL_FUNC) &_Rpack2_min_index, 1},
     {NULL, NULL, 0}
 };
 
