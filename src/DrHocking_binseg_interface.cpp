@@ -3,7 +3,7 @@
 #include "DrHockingbinseg.h"
 
 // [[Rcpp::export]]
-Rcpp::List rcpp_binseg
+Rcpp::List rcpp_binseg_Dr_Hocking
   (const Rcpp::NumericVector data_vec,
    const int kmax) {
   if(data_vec.size() < 1){
@@ -20,7 +20,7 @@ Rcpp::List rcpp_binseg
   Rcpp::IntegerVector after_size(kmax);
   Rcpp::IntegerVector invalidates_index(kmax);
   Rcpp::IntegerVector invalidates_after(kmax);
-  int status = rcpp_binseg
+  int status = rcpp_binseg_Dr_Hocking
     (&data_vec[0], data_vec.size(), kmax,
      //inputs above, outputs below.
      &end[0], &loss[0],

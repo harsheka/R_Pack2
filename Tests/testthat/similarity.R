@@ -1,9 +1,10 @@
-library(binsegRcpp)
+library(Rpack2)
 library(testthat)
-# context("my_cpp_binseg")
+# context("min_index")
 
-test_that("one data point has zero cost", {
-  fit <- Rpack2::binseg(5)
-  expect_identical(fit[["loss"]], 0)
-  expect_identical(fit[["before.mean"]], 5)
+test_that("min_index finds the index of the minimum value of a vector", {
+  expect_equal(min_index(c(1,0,1,2,1)), 1)
+  expect_equal(min_index(c(-1,1,0,1,2,1)), 0)
+  expect_equal(min_index(c(1,0,1,2,1,55,3,99)), 7)
 })
+#> Test passed
